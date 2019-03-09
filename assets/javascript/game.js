@@ -12,7 +12,6 @@ var guesses = 15;
 var numOfGuesses = 0;
 
 
-
 // Create variables that hold references to HTML 
 
 var userGuess = document.getElementById("userGuess");
@@ -38,19 +37,11 @@ var guessesSoFar = document.getElementById("guessesSoFar");
 
 document.onkeyup = function(event){
 
-    
-   
     var playerGuess = event.key;
     console.log(playerGuess);
 
     var computerLetter = playerChoices[Math.floor(Math.random() * playerChoices.length)];
     console.log(computerLetter);
-
-    //  guessText = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
-
-    
 
     if(playerGuess === computerLetter){
         wins++;
@@ -61,7 +52,6 @@ document.onkeyup = function(event){
         losses++;
         guesses--;
         numOfGuesses++;
-        
     
     }
 
@@ -75,13 +65,6 @@ document.onkeyup = function(event){
       
        
     }
-
-    
-        
-    };
-
-    // var guessText = playerGuess.join();
-    // var lettersGuessed = computerLetter;
 
     // if(gameOver === true){
     //     clearInterval();
@@ -98,13 +81,12 @@ document.onkeyup = function(event){
     numberOfWins.textContent = "Wins:" + " " + wins;
     numberOfLosses.textContent = "Losses:" + " " + losses;
     guessesLeft.textContent = "Number of Guesses left:" + " " + guesses;
-    guessesSoFar.textContent = "letters guessed so far:" + playerGuess;
- 
 
 
 
 
 
+};
 
 // add another if statement with a for loop inside it giving the condition of when the game ends. 
 // try to make only one random letter chosen for the first five plays
