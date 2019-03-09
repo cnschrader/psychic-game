@@ -30,8 +30,19 @@ var guessesSoFar = document.getElementById("guessesSoFar");
 
 
 // write the onkey functions for the players guesses. 
+var GuessSoFarArray = [];
 
+var computerLetter;
 
+function resetGame(){
+    computerLetter = playerChoices[Math.floor(Math.random() * playerChoices.length)];
+    console.log(computerLetter,"correct choice");
+    GuessSoFarArray = [];
+    numOfGuesses = 0;
+    guesses = 16;
+};
+
+resetGame();
 
 
 
@@ -39,29 +50,37 @@ document.onkeyup = function(event){
 
     var playerGuess = event.key;
     console.log(playerGuess);
+    GuessSoFarArray.push(playerGuess);
 
-    var computerLetter = playerChoices[Math.floor(Math.random() * playerChoices.length)];
-    console.log(computerLetter);
+
+    
 
     if(playerGuess === computerLetter){
+        resetGame();
         wins++;
-        numOfGuesses++;
+        
+        
     }
 
     if(playerGuess !== computerLetter){
-        losses++;
-        guesses--;
+        
+        // guesses--;
+
         numOfGuesses++;
+        // $("#guessesSoFar").append("<div>");
+        
+        
+        
+        
     
     }
 
     if(guesses === 0){
       prompt("you lose! Try again?");
       
-          losses = 0;
-          wins = 0;
+          losses++;
           guesses = 15;
-          numOfGuesses = 0;
+          resetGame();
       
        
     }
@@ -77,10 +96,11 @@ document.onkeyup = function(event){
     //     alert("You Lose!")
     
 
-    userGuess.textContent = "Guess what letter I am thinking of:" + " " + playerGuess;
+    userGuess.textContent = "Guess what letter I am thinking of:" + " " + GuessSoFarArray;
     numberOfWins.textContent = "Wins:" + " " + wins;
     numberOfLosses.textContent = "Losses:" + " " + losses;
     guessesLeft.textContent = "Number of Guesses left:" + " " + guesses;
+    // guessesSoFar.textContent = "Guessed letters:" + guessText;
 
 
 
