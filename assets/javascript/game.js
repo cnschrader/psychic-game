@@ -64,7 +64,7 @@ document.onkeyup = function(event){
 
     if(playerGuess !== computerLetter){
         
-        // guesses--;
+        guesses--;
 
         numOfGuesses++;
         // $("#guessesSoFar").append("<div>");
